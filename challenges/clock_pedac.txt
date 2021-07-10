@@ -1,0 +1,52 @@
+Written problem statement
+Create a clock that is independent of date.
+
+Functionality: add minutes to and subtract minutes from the time represented by a given clock object.
+Two clock objects that represent the same time should be equal to each other.
+
+Rules
+You may not use any built-in date or time functionality; just use arithmetic operations.
+
+
+# Problem
+  # inputs
+    # 
+    #
+  # outputs 
+    #
+    # 
+
+# Example / Test Case
+  # `Clock` class needed
+  # `at`Class method needed
+      - takes 2 aguments: hour and minutes
+        - minutes has default of 0 minutes
+      - returns a time in minutes relative to midnight
+        - max minutes could be 1440 - 1 before starting at 0
+          - time % 1440 gives minutes
+  to_s method converts value of time minutes to hours
+  into a string formated such as '00:00'
+
+      
+
+# Data Structure 
+  # inputs are integers
+    intermediate calculating of integers
+    output as string
+  #
+  #
+
+# Algorithm
+  create `at` class method
+    use inputs of Clock.at to create Time class instance
+    Clock.at returns Time Class `time` instance variable
+    Time Class `+` and `-` adapt Time.time
+  create constructor that takes input from `at`
+  determine time in minutes and assign to `@time`
+  do final converesion to string in `to_s`
+  # 
+  # `to_s` method
+
+  #
+
+# Code

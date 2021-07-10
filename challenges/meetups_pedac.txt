@@ -1,0 +1,64 @@
+Problem: Meetups
+Meetups are a great way to meet people who share a common interest. 
+Typically, meetups happen monthly on the same day of the week. 
+For example, a meetup's meeting may be set as:
+
+The first Monday of January 2021
+The third Tuesday of December 2020
+The teenth wednesday of December 2020
+The last Thursday of January 2021
+
+In this program, we'll construct objects that represent a meetup date. 
+Each object takes a month number (1-12) and a year (e.g., 2021). 
+Your object should be able to determine the exact date of the meeting in the specified month and year. 
+For instance, if you ask for the 2nd Wednesday of May 2021, 
+the object should be able to determine that the meetup will occur 12th of May, 2021.
+
+The descriptors that may be given are strings: 
+'first', 'second', 'third', 'fourth', 'fifth', 'last', and 'teenth'. 
+The case of the strings is not important; that is, 'first' and 'fIrSt' are equivalent. 
+Note that "teenth" is a made up word: there are exactly 7 days that end in '-teenth'. 
+Therefore, each day of the week (Monday, Tuesday, ...) will have one date that is the "teenth" of that day in every month. That is, every month has exactly one "teenth" Monday, one "teenth" Tuesday, etc. The fifth day of the month may not happen every month, but some meetup groups like that irregularity.
+
+The days of the week are given by the strings
+'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'.
+Again, the case of the strings is not important.
+
+input:
+string, repreenting the positon of day within the month, case insensitive
+  => 'first', 'second', 'third', 'fourth', 'fifth', 'last', and 'teenth'
+string, day, the day of the week that meetup to be held, case insensitive
+  => 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'
+integer, month
+integer, year
+
+output:
+string, date in format: 12th of May, 2021
+
+Examples / Test Cases
+Meetup.new(2013, 3) 
+  => need a Meetup class that takes year, and month as args
+  => constructor triggered and instance variables assigned values
+assert_equal Date.civil(2013, 3, 4), meetup.day('Monday', 'first')
+  => uses class method `civil` applied to built in class `Date`, takes 3 args year, month, day
+  => need an instance method `day` taking two string args (day of week, position in month) that returns a Date object
+  => need an equivalence instance method that indicates values of year, month, & day of two date objects are the same
+
+assert_nil meetup.day('Wednesday', 'fifth')
+  => dates that don't exist return `nil`
+
+Data Structures:
+collections to be created that can be iterated over to obtain correct date
+month, year given, only day needs to be found
+looking for Wednesday => collect all wednesday days, find the nth wednesday and return it
+  => what built in methods does Date class provide to support this? 
+  Class method Date.valid_date?(2001,2,3) 
+  instance methods: monday?, tuesday? etc.
+
+Algorithm:
+Take the day of the week
+iterate over all days of a given month and add to array if day is equivalent to day searched for.
+return array.first, array.last if first or last searched
+retrun array[n-1] as the day of the month if case n = 1st, 2nd, 3rd, 4th, or 5th as 
+return array value for 13..19 if teenth wanted
+return nil if n= 5th does not return a day in the month

@@ -1,0 +1,70 @@
+=begin
+Problem Statment (restate explicit reqs /identify implicit reqs)
+The diamond exercise takes as its input a letter, and outputs it in a diamond shape. 
+Given a letter, it prints a diamond starting with 'A', with the supplied letter at the widest point.
+
+rules:
+The first row contains one 'A'.
+The last row contains one 'A'.   => if 'A' passed in, there is only one row
+All rows, except the first and last, have exactly two identical letters.
+The diamond is horizontally symmetric.
+The diamond is vertically symmetric.
+The diamond has a square shape (width equals height). => visually is a rectangle
+The letters form a diamond shape. => unless 'A' is input which is one row only with letter 'A'
+The top half has the letters in ascending order.     => 'A', 'B', 'C'
+The bottom half has the letters in descending order. => 'C', 'B', 'A'
+The four corners (containing the spaces) are triangles.
+input will be valid, i.e. capital letter
+
+input: a capital letter
+output: the corresponding diamond, consisting of series of strings that meet above specs
+
+Examples / Test Case:
+Diamond for letter 'A':
+A
+
+one letter => middle row has no spaces before first character
+`A` is first letter of alphabet = 1 => 1 - 1 = 0 
+string for line `A` = 0 spaces + letter + 0 spaces
+
+Diamond for letter 'C':
+  A
+ B B
+C   C
+ B B
+  A
+
+`C` is third letter => 3, rows = 3, spaces = 
+string for line `C` => `C` + n spaces + `C`,
+`B` is 2nd letter => n - 2 spaces + `B` + (n - 2) spaces
+`A` is 1st letter => n - 1 spaces + `A` + (n - 2) spaces
+
+Diamond for letter 'E':
+    A           (rows-1) spaces + letter + rows-1 spaces + newline 
+   B B          (rows-2) spaces + letter + 2 - 2 = 0 => 0*2 + 1 = 1 middle spaces + new line
+  C   C         (rows-3) spaces + letter + 3 - 2 = 1 => 1*2 + 1 = 3 middle spaces
+ D     D        (rows-4) spaces + letter + 4 - 2 = 2 => 2*2 + 1 = 5 middle spaces
+E       E       (rows-5) spaces + letter + 5 - 2 = 3 => 3*2 + 1 = 7 middle spaces
+ D     D
+  C   C
+   B B
+    A
+
+class Diamond to be generated 
+class method `make_diamond` takes 1 string arg, a capital letter
+
+Data Structures:
+input: string character
+generate list of rows to be calculated
+read row number from hash
+output: series of strings 
+
+Algorithm:
+create hash to assign letter to its number in alphabet 
+use input character to extract number of middle row in the middle of diamond from hash
+use input character to generate collection of letters to be printed out
+iterate over collection and creating string for each letter
+
+Note: => later refactored to use comparisons of characters themselves or their `.ord` equivalents. 
+This allowed deletion of hash and allowed further abstraction and no use of constant.
+=end

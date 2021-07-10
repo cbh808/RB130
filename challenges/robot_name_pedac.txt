@@ -1,0 +1,34 @@
+=begin
+Problem Statment (restate explicit reqs /identify implicit reqs)
+Write a program that manages robot factory settings.
+
+rules:
+Robots off the factory floor have no name
+The first booted, a random name is generated, e.g. RX837 or BC811.
+Resetting a robot to factory settings means name gets wiped.
+i.e it will respond with a new random name.
+The names must be random;
+Names should not follow a predictable sequence.
+Solution should not allow use of same name twice
+
+input: 
+output:
+
+Examples / Test Case:
+requires class Robot
+requires Robot instance getter method name
+requires Robot instance method reset
+
+
+Data Structures:
+input:
+output:
+
+Algorithm:
+create constructor that generates randomly generated name for a robot
+use helper methods to generate 2 uppercase char prefix and 3 digit suffix
+keep track of names with class variable referencing an array of taken names
+only assign generated name to `name` instance variable if name not already taken
+create reset instance method that assigns a new name to same robot
+
+=end
